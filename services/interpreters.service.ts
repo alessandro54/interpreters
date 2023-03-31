@@ -18,7 +18,9 @@ export default class InterpretersService extends HttpClient {
         },
       });
     } else {
-      return await super.get("http://localhost:3000/data/interpreter_dump.json");
+      return await super.get(
+        "http://localhost:3000/data/interpreter_dump.json"
+      );
     }
   }
 }

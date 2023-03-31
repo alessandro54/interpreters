@@ -1,17 +1,25 @@
 <template>
   <section>
-    <h1>das</h1>
+    <Table :interpreters="data"/>
   </section>
 </template>
 
 <script lang="ts">
-  import InterpretersService from '~/services/interpreters.service';
+import { useInterpreterStore } from '~~/stores/interpreter';
+import Table from '~~/components/interpreters/table.vue';
 
-  export default defineComponent({
-    async setup() {
-      const { datalist } = await InterpretersService.fetchAll();
+export default defineComponent({
+  components: {
+    Table
+  },
+  async setup() {
+    const store = useInterpreterStore();
 
-      return { datalist }
-    }
-  })
+    await store.fetchInterpreters();
+
+    const data = store.getInterpreters;
+
+    return { data }
+  }
+})
 </script>
