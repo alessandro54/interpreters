@@ -23,8 +23,11 @@ export const useInterpreterStore = defineStore("interpreter", {
     },
   },
   getters: {
-    getInterpreters(): any[] {
-      return this.data;
+    getInterpreters: (state) => {
+      return (limit: number = 10, page: number = 1) => {
+        const start = page * limit;
+        return state.data.slice(start, start + limit);
+      };
     },
   },
 });

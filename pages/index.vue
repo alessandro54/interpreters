@@ -17,7 +17,7 @@ export default defineComponent({
 
     await store.fetchInterpreters();
 
-    const data = store.getInterpreters;
+    const data = store.getInterpreters();
 
     return { data }
   }
