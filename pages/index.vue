@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Table :interpreters="data"/>
+    <Table />
   </section>
 </template>
 
@@ -13,13 +13,7 @@ export default defineComponent({
     Table
   },
   async setup() {
-    const store = useInterpreterStore();
-
-    await store.fetchInterpreters();
-
-    const data = store.getInterpreters();
-
-    return { data }
+    await useInterpreterStore().fetchInterpreters();
   }
 })
 </script>

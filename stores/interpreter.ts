@@ -15,7 +15,7 @@ export const useInterpreterStore = defineStore("interpreter", {
         .then(({ datalist }) => {
           this.loading = false;
           this.fetchedData = datalist;
-          this.data = datalist;
+          this.data = datalist.slice(0, 10);
         })
         .catch((error) => {
           this.error = error;
@@ -24,10 +24,13 @@ export const useInterpreterStore = defineStore("interpreter", {
   },
   getters: {
     getInterpreters: (state) => {
-      return (limit: number = 10, page: number = 1) => {
+      return (page: number = 1, limit: number = 10) => {
         const start = page * limit;
-        return state.data.slice(start, start + limit);
+        return state.fetchedData.slice(start, start + limit);
       };
     },
+    getTotalCount(): number {
+      return this.fetchedData.length;
+    }
   },
 });

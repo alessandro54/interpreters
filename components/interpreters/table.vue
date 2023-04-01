@@ -56,10 +56,21 @@
       </div>
     </div>
   </div>
+  <Pagination/>
 </template>
 
 <script>
+import { useInterpreterStore } from '~~/stores/interpreter';
+import { storeToRefs } from "pinia";
+import Pagination from "./pagination.vue";
 export default defineComponent({
-  props: ['interpreters']
+  async setup() {
+    const { data: interpreters } = storeToRefs(useInterpreterStore());
+
+    return { interpreters }
+  },
+  components: {
+    Pagination
+  },
 })
 </script>
