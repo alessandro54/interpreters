@@ -1,11 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <main>
-    <Nav />
-    <section>
-      <slot />
-    </section>
+  <Nav />
+  <main class="min-h-screen bg-white">
+    <slot />
   </main>
 </template>
 

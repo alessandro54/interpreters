@@ -1,62 +1,57 @@
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
-    <div class="sm:flex sm:items-center">
-      <div class="sm:flex-auto">
-        <h1 class="text-base font-semibold leading-6 text-gray-900">Users</h1>
-        <p class="mt-2 text-sm text-gray-700">A list of all the users in your account including their name, title, email
-          and role.</p>
-      </div>
-      <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-        <button type="button"
-          class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add
-          user</button>
-      </div>
-    </div>
+    <div class="h-[100px]" />
     <div class="mt-8 flow-root">
       <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-          <table class="min-w-full divide-y divide-gray-300">
-            <thead>
-              <tr>
-                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3">
-                  Name
-                </th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Title
-                </th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Email
-                </th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Role
-                </th>
-                <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-3">
-                  <span class="sr-only">Edit</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white">
-              <tr v-for="(interpreter, interpreterIdx) in interpreters" :key="interpreter.email1"
-                :class="interpreterIdx % 2 === 0 ? undefined : 'bg-gray-50'">
-                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
-                  {{ interpreter.nombre }}
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ interpreter.title }}</td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ interpreter.email }}</td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ interpreter.role }}</td>
-                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, {{
-                    interpreter.name
-                  }}</span></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-300">
+              <thead>
+                <tr>
+                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-2">Nombre
+                  </th>
+                  <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
+                    Apellido Paterno
+                  </th>
+                  <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
+                    Apellido Materno
+                  </th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Localidad</th>
+                  <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
+                    <span class="sr-only">Edit</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(interpreter, interpreterIdx) in interpreters" :key="interpreter.email1"
+                  :class="interpreterIdx % 2 === 0 ? undefined : 'bg-gray-50'">
+                  <td
+                    class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-2">
+                    {{ interpreter.nombre }}
+                    <dl class="font-normal lg:hidden">
+                      <dt class="sr-only">Apellido Paterno</dt>
+                      <dd class="mt-1 truncate text-gray-700">{{ interpreter.apellidoPaterno }}</dd>
+                      <dt class="sr-only">Apellido Materno</dt>
+                      <dd class="mt-1 truncate text-gray-700">{{ interpreter.apellidoMaterno }}</dd>
+                    </dl>
+                  </td>
+                  <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ interpreter.apellidoPaterno }}</td>
+                  <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ interpreter.apellidoMaterno }}</td>
+                  <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter.ubigeoResidencia.nombreDepartamento }}</td>
+                  <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, {{
+                      interpreter.nombre
+                    }}</span></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <Pagination/>
+  <Pagination />
 </template>
 
 <script>
