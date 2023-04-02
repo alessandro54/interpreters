@@ -1,13 +1,16 @@
 <template>
-  <section class="w-full flex justify-center">
-    <div class="w-4/5 xl:w-1/3 flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
-      <div @click="handlePreviousClick" class="-mt-px flex w-0 flex-1 cursor-pointer">
-        <div class="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
-          <ArrowLongLeftIcon class="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-          Previous
+  <section class="justify-center w-full flex fixed bottom-20 inset-x-0">
+    <div class="w-4/5 xl:w-1/3 flex items-center justify-between px-0 sm:px-5 bg-teal-50 rounded-xl">
+      <div v-if="!(page <= 1)" @click="handlePreviousClick" class="-mt-px flex w-0 flex-1 cursor-pointer">
+        <div
+          class="inline-flex items-center border-t-2 border-transparent pr-1 py-4 text-sm font-medium select-none text-teal-500 hover:border-teal-300 hover:text-teal-700">
+          <ArrowLongLeftIcon class="mr-3 h-5 w-5 text-teal-400" aria-hidden="true" />
+          Anterior
         </div>
       </div>
-      <div class="hidden md:-mt-px md:flex">
+      <div v-else class="w-0 flex-1" />
+      <!-- TODO paginator -->
+      <div class="hidden md:-mt-px ">
         <a href="#"
           class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">1</a>
         <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
@@ -21,19 +24,20 @@
         <a href="#"
           class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">8</a>
         <a href="#"
-          class="inline-flex items-center bor
-          der-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">9</a>
+          class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-indigo-500 hover:border-gray-300 hover:text-gray-700">9</a>
         <a href="#"
           class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">{{
             total }}</a>
       </div>
-      <div @click="handleNextClick" class="-mt-px flex w-0 flex-1 justify-end cursor-pointer">
+      <div v-if="!(page >= Math.floor(total / limit))" @click="handleNextClick"
+        class="-mt-px flex w-0 flex-1 justify-end cursor-pointer">
         <div
-          class="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
-          Next
-          <ArrowLongRightIcon class="ml-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+          class="inline-flex items-center border-t-2 border-transparent pl-1 py-4 text-sm font-medium select-none text-teal-500 hover:border-teal-300 hover:text-teal-700">
+          Siguiente
+          <ArrowLongRightIcon class="ml-3 h-5 w-5 text-teal-400" aria-hidden="true" />
         </div>
       </div>
+      <div v-else class="w-0 flex-1" />
     </div>
   </section>
 </template>
@@ -52,6 +56,18 @@ export default defineComponent({
   async setup() {
     const store = useInterpreterStore();
     return { store: store, total: store.getTotalCount }
+  },
+  mounted() {
+    window.addEventListener('keydown', (e) => {
+      switch (e.key) {
+        case 'ArrowLeft':
+          this.handlePreviousClick();
+          break;
+        case 'ArrowRight':
+          this.handleNextClick();
+          break;
+      }
+    })
   },
   methods: {
     handlePreviousClick() {
