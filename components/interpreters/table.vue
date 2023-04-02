@@ -16,10 +16,12 @@
                   <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
                     Apellido Materno
                   </th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Localidad</th>
-                  <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Departamento</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Lengua</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Variedad</th>
+                  <!-- <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                     <span class="sr-only">Edit</span>
-                  </th>
+                  </th> -->
                 </tr>
               </thead>
               <tbody>
@@ -38,11 +40,13 @@
                   <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ interpreter.apellidoPaterno }}</td>
                   <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ interpreter.apellidoMaterno }}</td>
                   <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter.ubigeoResidencia.nombreDepartamento }}</td>
-                  <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                  <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter.lengua1.nombre }}</td>
+                  <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter?.variedad1?.nombre }}</td>
+                  <!-- <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, {{
                       interpreter.nombre
                     }}</span></a>
-                  </td>
+                  </td> -->
                 </tr>
               </tbody>
             </table>
