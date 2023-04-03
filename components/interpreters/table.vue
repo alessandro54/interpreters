@@ -34,15 +34,15 @@
                 <tr v-for="(interpreter, interpreterIdx) in interpreters" :key="interpreter.email1"
                   :class="interpreterIdx % 2 === 0 ? 'bg-white' : 'bg-gray-100'">
                   <td
-                    class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-2">
+                    class="w-full max-w-1 py-4 pl-3 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-2">
                     {{ useStartCase(interpreter.nombre.toLowerCase()) }}
                     <dl class="font-normal lg:hidden">
                       <dt class="sr-only">Apellido Paterno</dt>
-                      <dd class="mt-1 truncate text-gray-700">
+                      <dd class="mt-1  text-gray-700">
                         {{ useStartCase(interpreter.apellidoPaterno.toLowerCase()) }}
                       </dd>
                       <dt class="sr-only">Apellido Materno</dt>
-                      <dd class="mt-1 truncate text-gray-700">
+                      <dd class="mt-1  text-gray-700">
                         {{ useStartCase(interpreter.apellidoMaterno.toLowerCase()) }}
                       </dd>
                     </dl>

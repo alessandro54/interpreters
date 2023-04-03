@@ -10,9 +10,17 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/eslint-module": "^4.0.2",
     "@nuxtjs/tailwindcss": "^6.6.5",
     "@types/node": "^18.15.11",
-    "nuxt-lodash": "^2.4.1"
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.10.0",
+    "typescript": "*"
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.17",
@@ -20,6 +28,7 @@
     "apexcharts": "^3.37.3",
     "nuxt": "^3.3.2",
     "nuxt-headlessui": "^1.1.1",
+    "nuxt-lodash": "^2.4.1",
     "vue3-apexcharts": "^1.4.1"
   }
 }

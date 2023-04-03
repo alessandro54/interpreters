@@ -6,7 +6,7 @@ export default class InterpretersService extends HttpClient {
 
     // Only fetch API in production
     if (env === "production") {
-      return await super.post(apiUrl, {
+      return await this.post(apiUrl, {
         data: {
           categoria1: "3",
           idLengua1: "-1",
@@ -18,9 +18,7 @@ export default class InterpretersService extends HttpClient {
         },
       });
     } else {
-      return await super.get(
-        "http://localhost:3000/data/interpreter_dump.json"
-      );
+      return await this.get("http://localhost:3000/data/interpreter_dump.json");
     }
   }
 }

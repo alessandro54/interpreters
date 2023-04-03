@@ -15,5 +15,10 @@ export default defineNuxtConfig({
       env: process.env.NODE_ENV!,
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-lodash"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@pinia/nuxt",
+    "nuxt-lodash",
+    "@nuxtjs/eslint-module",
+  ],
 });
