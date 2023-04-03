@@ -20,6 +20,7 @@ export const useInterpreterStore = defineStore("interpreter", {
         })
         .catch((error) => {
           this.error = error;
+          this.loading = false;
         });
     },
   },
