@@ -53,7 +53,7 @@
                   <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
                     {{ useStartCase(interpreter.apellidoMaterno.toLowerCase()) }}
                   </td>
-                  <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter.ubigeoResidencia.nombreDepartamento }}</td>
+                  <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter?.ubigeoResidencia?.nombreDepartamento }}</td>
                   <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter.lengua1.nombre }}</td>
                   <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter?.variedad1?.nombre }}</td>
                   <!-- <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">

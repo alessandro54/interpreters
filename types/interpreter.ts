@@ -1,4 +1,5 @@
 import type { Language } from "./language";
+import { Residence } from "./residence";
 import type { Variety } from "./variety";
 
 export type Interpreter = {
@@ -29,6 +30,7 @@ export type Interpreter = {
   variedad2?: Variety;
   lengua1: Language;
   lengua2?: Language;
+  ubigeoResidencia?: Residence;
   descripcionSexo: string;
   descripcionEspecialidad1: string;
   descripcionEspecialidad2?: string;
