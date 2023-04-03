@@ -1,9 +1,9 @@
 <template>
-  <section class="justify-center w-full flex fixed bottom-20 inset-x-0">
-    <div class="w-4/5 xl:w-1/3 flex items-center justify-between px-0 sm:px-5 bg-teal-50 rounded-xl">
-      <div v-if="!(page <= 1)" @click="handlePreviousClick" class="-mt-px flex w-0 flex-1 cursor-pointer">
+  <section class="justify-center w-full flex fixed bottom-3 inset-x-0">
+    <div class="w-4/5 xl:w-1/3 flex items-center justify-between px-0 sm:px-5 shadow-lg backdrop-blur-md bg-white bg-opacity-50 rounded-xl">
+      <div v-if="!(page <= 1)" @click="handlePreviousClick" class="-mt-px flex w-0 flex-1 justify-center md:justify-start cursor-pointer">
         <div
-          class="inline-flex items-center border-t-2 border-transparent pr-1 py-4 text-sm font-medium select-none text-teal-500 hover:border-teal-300 hover:text-teal-700">
+          class="inline-flex items-center border-t-2 border-transparent pr-1 py-4 text-sm font-medium select-none text-gray-400 hover:border-teal-300 hover:text-teal-300">
           <ArrowLongLeftIcon class="mr-3 h-5 w-5 text-teal-400" aria-hidden="true" />
           Anterior
         </div>
@@ -30,9 +30,9 @@
             total }}</a>
       </div>
       <div v-if="!(page >= Math.floor(total / limit))" @click="handleNextClick"
-        class="-mt-px flex w-0 flex-1 justify-end cursor-pointer">
+        class="-mt-px flex w-0 flex-1 justify-center md:justify-end cursor-pointer">
         <div
-          class="inline-flex items-center border-t-2 border-transparent pl-1 py-4 text-sm font-medium select-none text-teal-500 hover:border-teal-300 hover:text-teal-700">
+          class="inline-flex items-center border-t-2 border-transparent pl-1 py-4 text-sm font-medium select-none text-gray-400 hover:border-teal-300 hover:text-teal-300">
           Siguiente
           <ArrowLongRightIcon class="ml-3 h-5 w-5 text-teal-400" aria-hidden="true" />
         </div>
@@ -50,7 +50,7 @@ export default defineComponent({
   data: () => {
     return {
       page: 1,
-      limit: 10,
+      limit: 15,
     }
   },
   async setup() {

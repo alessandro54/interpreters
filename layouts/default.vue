@@ -2,18 +2,18 @@
 
 <template>
   <Nav />
-  <main class="min-h-screen bg-white">
+  <main class="lg:h-[calc(100vh-65px)] pb-20 lg:pb-0 bg-white overflow-auto">
     <slot />
   </main>
 </template>
 
 <script>
-  import { defineComponent } from 'vue';
-  import Nav from '~/components/shared/layout/nav.vue';
+import { defineComponent } from 'vue';
+import Nav from '~/components/shared/layout/nav.vue';
 
-  export default defineComponent({
-    components: {
-      Nav
-    }
-  })
+export default defineComponent({
+  components: {
+    Nav
+  }
+})
 </script>
