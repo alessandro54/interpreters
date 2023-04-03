@@ -51,6 +51,7 @@ export default defineComponent({
               },
               dataLabels: {
                 offsetX: 80,
+                offsetY: 0,
                 style: {
                   colors: ['#000'],
                   fontWeight: 'normal'
