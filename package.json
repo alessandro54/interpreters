@@ -11,12 +11,15 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.6.5",
-    "@types/node": "^18.15.11"
+    "@types/node": "^18.15.11",
+    "nuxt-lodash": "^2.4.1"
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.17",
     "@pinia/nuxt": "^0.4.7",
-    "@vuestic/nuxt": "^1.0.12",
-    "nuxt": "^3.3.2"
+    "apexcharts": "^3.37.3",
+    "nuxt": "^3.3.2",
+    "nuxt-headlessui": "^1.1.1",
+    "vue3-apexcharts": "^1.4.1"
   }
 }
