@@ -31,36 +31,55 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(interpreter, interpreterIdx) in interpreters" :key="interpreter.email1"
-                  :class="interpreterIdx % 2 === 0 ? 'bg-white' : 'bg-gray-100'">
+                <tr v-for="n in 15" :key="n" class="animate-pulse w-full">
                   <td
                     class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-2">
-                    {{ useStartCase(interpreter.nombre.toLowerCase()) }}
+                    <div class="flex-1 w-full space-y-6 py-1">
+                      <div class="h-2 lg:h-6 bg-slate-200 rounded"></div>
+                    </div>
                     <dl class="font-normal lg:hidden">
                       <dt class="sr-only">Apellido Paterno</dt>
                       <dd class="mt-1 truncate text-gray-700">
-                        {{ useStartCase(interpreter.apellidoPaterno.toLowerCase()) }}
+                        <div class="flex-1 w-full space-y-6 py-1">
+                          <div class="h-2 bg-slate-200 rounded"></div>
+                        </div>
                       </dd>
                       <dt class="sr-only">Apellido Materno</dt>
                       <dd class="mt-1 truncate text-gray-700">
-                        {{ useStartCase(interpreter.apellidoMaterno.toLowerCase()) }}
+                        <div class="flex-1 w-full space-y-6 py-1">
+                          <div class="h-2 bg-slate-200 rounded"></div>
+                        </div>
                       </dd>
                     </dl>
                   </td>
                   <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                    {{ useStartCase(interpreter.apellidoPaterno.toLowerCase()) }}
+                    <div class="flex-1 space-y-6 py-1">
+                      <div class="h-6 w-4/5 bg-slate-200 rounded"></div>
+                    </div>
                   </td>
                   <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                    {{ useStartCase(interpreter.apellidoMaterno.toLowerCase()) }}
+                    <div class="flex-1 space-y-6 py-1">
+                      <div class="h-6 w-4/5 bg-slate-200 rounded"></div>
+                    </div>
                   </td>
-                  <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter?.ubigeoResidencia?.nombreDepartamento }}</td>
-                  <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter.lengua1.nombre }}</td>
-                  <td class="px-3 py-4 text-sm text-gray-500">{{ interpreter?.variedad1?.nombre }}</td>
-                  <!-- <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, {{
-                      interpreter.nombre
-                    }}</span></a>
-                  </td> -->
+                  <!-- Departamento -->
+                  <td class="px-3 py-4 text-sm text-gray-500">
+                    <div class="flex-1 space-y-6 py-1">
+                      <div class="h-6 w-4/5 bg-slate-200 rounded"></div>
+                    </div>
+                  </td>
+                  <!-- Lengua -->
+                  <td class="px-3 py-4 text-sm text-gray-500">
+                    <div class="flex-1 space-y-6 py-1">
+                      <div class="h-6 w-3/5 bg-slate-200 rounded"></div>
+                    </div>
+                  </td>
+                  <!-- Variedad -->
+                  <td class="px-3 py-4 text-sm text-gray-500">
+                    <div class="space-y-6 py-1">
+                      <div class="h-6 w-2/5 bg-slate-200 rounded"></div>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -69,21 +88,11 @@
       </div>
     </div>
   </div>
-  <Pagination />
 </template>
 
-<script>
-import { useStartCase } from 'lodash';
-import Pagination from "./pagination.vue";
+
+<script lang="ts">
 export default defineComponent({
-  props: {
-    interpreters: {
-      type: Array,
-      required: true
-    }
-  },
-  components: {
-    Pagination
-  },
+
 })
 </script>
