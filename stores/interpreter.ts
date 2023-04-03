@@ -1,11 +1,12 @@
 import { defineStore } from "pinia";
 import InterpretersService from "~~/services/interpreters.service";
+import { Interpreter } from "~~/types/interpreter";
 
 export const useInterpreterStore = defineStore("interpreter", {
   state: () => ({
     loading: true,
-    data: [],
-    fetchedData: [],
+    data: [] as Interpreter[],
+    fetchedData: [] as Interpreter[],
     error: null,
   }),
   actions: {
@@ -24,13 +25,25 @@ export const useInterpreterStore = defineStore("interpreter", {
   },
   getters: {
     getInterpreters: (state) => {
-      return (page: number = 1, limit: number = 10) => {
+      return (page: number = 1, limit: number = 10) : Interpreter[] => {
         const start = page * limit;
         return state.fetchedData.slice(start, start + limit);
       };
     },
     getTotalCount(): number {
       return this.fetchedData.length;
-    }
+    },
+    getLanguageCount(): LanguageCount {
+      return this.fetchedData.reduce((acc: LanguageCount, cur: Interpreter) => {
+        let key = cur.lengua1.nombre;
+        if (!acc[key]) acc[key] = 0;
+        acc[key]++;
+        return acc;
+      }, {} as LanguageCount);
+    },
   },
 });
+
+type LanguageCount = {
+  [key: string]: number;
+};

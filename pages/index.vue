@@ -13,7 +13,9 @@ export default defineComponent({
     Table
   },
   async setup() {
-    await useInterpreterStore().fetchInterpreters();
+    const store = useInterpreterStore();
+    if (store.getTotalCount === 0)
+      await store.fetchInterpreters();
   }
 })
 </script>
