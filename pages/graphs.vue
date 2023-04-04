@@ -5,12 +5,14 @@
         <apexchart :options="chartOptions" :series="[series]" />
       </div>
     </section>
+    <Choropleth />
   </ClientOnly>
 </template>
 
 <script lang="ts">
 import { fromPairs, sortBy, toPairs } from 'lodash';
 import { useInterpreterStore } from '~~/stores/interpreter';
+import Choropleth from '~~/components/graphs/choropleth.vue'
 
 export default defineComponent({
   data() {
@@ -78,6 +80,9 @@ export default defineComponent({
     return {
       languageCount: fromPairs(sortBy(toPairs(store.getLanguageCount), 1).reverse())
     }
+  },
+  components: {
+    Choropleth
   }
 })
 </script>
